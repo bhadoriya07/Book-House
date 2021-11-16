@@ -1,0 +1,217 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <title>BOOK HOUSE</title>
+</head>
+
+<body>
+  <!--Nav bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <img src="{% static 'images/logo.jpg' %}" style="width: 50px; height: 40px;">&nbsp;&nbsp;
+      <h5 class="navbar-brand" style="font-family: 'Poppins', sans-serif;font-weight: 700;font-size: 28px;">BOOK HOUSE
+      </h5>>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+          </li>
+      </div>
+      <div class="mx-3">
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login to Continue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form1" action="/accountapp/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="md-3">
+              <label for="validationDefault01" class="form-label">Password</label>
+              <input type="password" class="form-control" id="validationDefault01" required name="password">
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Signup to Continue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form  method="post" action="/accountapp/signup">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">First name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Last name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="lname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="md-3">
+              <label for="validationDefault01" class="form-label">Password</label>
+              <input type="password" class="form-control" id="validationDefault01" required name="password">
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Center area-->
+  <div class="center">
+    <img src="{% static 'images/book.jpg' %}" height="660" class="d-block w-100" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+      <h1 style="color:white; font-size: 80px; margin-top: -570px; font-family: 'Neuton', serif;">WELCOME TO BOOK HOUSE
+      </h1>
+      <p
+        style="color:orangered; font-size: 40px;line-height: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        Get all Books for free</p>
+      <p style="color:wheat; font-size: 40px; line-height:1;">OR</p>
+      <p
+        style="color:lime; font-size: 40px; line-height: normal;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        Donate a Book, SHARE THE JOY OF READING </p>
+      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dsignupModal"> Signup to
+        Donate</button>
+      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dloginModal"> Login to
+        Donate</button>
+      <p style="color: darkgrey;">Use these buttons if you are donator</p>
+      <p style="color: red;font-size: 30px;">{{message}}</p>
+    </div>
+  </div>
+  <!--Donator Login Modal -->
+  <div class="modal fade" id="dloginModal" tabindex="-1" aria-labelledby="dloginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dloginModalLabel">Login to Continue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/donatorapp/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="md-3">
+              <label for="validationDefault01" class="form-label">Password</label>
+              <input type="password" class="form-control" id="validationDefault01" required name="password">
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Donator Signup Modal -->
+  <div class="modal fade" id="dsignupModal" tabindex="-1" aria-labelledby="dsignupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dsignupModalLabel">Signup to Continue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/donatorapp/signup" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">First name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Last name</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="lname">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">City</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="city">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Contact Number</label>
+              <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="number">
+              <small id="emailHelp" class="form-text text-muted">People will contact using this number</small>
+            </div>
+            <div class="md-3">
+              <label for="validationDefault01" class="form-label">Password</label>
+              <input type="password" class="form-control" id="validationDefault01" required name="password">
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

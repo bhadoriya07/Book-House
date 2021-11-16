@@ -1,0 +1,127 @@
+<!doctype html>
+{% load static %}
+W
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <title>Book house | Register</title>
+</head>
+
+<body style="background-color:#dcdde1;">
+  <!--Nav bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <h5 class="navbar-brand" style="font-family: 'Poppins', sans-serif;font-weight: 700;font-size: 28px;">BOOK HOUSE</h5>>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+          </li>
+      </div>
+      <div class="mx-3">
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#donateModal">Donate Book</button>
+        <a href="/donatorapp/logout" class="btn btn-danger">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <!--Top bar-->
+  <div style="width: 100%; min-height: 50px;background-color:#f6f6f6;  margin-top: 25px;">
+    <h3 style="font-family: 'Poppins', sans-serif; margin-top: 30px;font-weight: 800;font-size: 37px;margin-left: 150px;">Your listed Books</h3>
+  </div>
+  <!--Card Section-->
+  {% for data in data %}
+  <div class="card" style="width: 20rem; display: inline-block; margin: 20px;">
+    <img src="{{ data.image.url }}" width="250px" height="210px" class="card-img-top" alt="...">
+    <div class="card-body">
+      <form action="/donatorapp/delete" method="post">
+        {% csrf_token %}
+        <h5 class="card-title">Subjects: {{data.subjects}}</h5>
+        <h5 class="card-title" name="classes" style="font-size:medium">CLASS:{{data.for_class}}</h5>
+        <h5 class="card-title" style="font-size:medium">NO.of Books:{{data.number_of_books}}</h5>
+        <h5 class="card-title" style="font-size: medium;">Edition:{{data.edition}}</h5>
+        <input type="hidden" name="subjects" value="{{data.subjects}}">
+        <input type="hidden" name="classes" value="{{data.for_class}}">
+        <input type="submit" class="btn btn-primary" value="Delete Book">
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- Donate Modal -->
+  <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="donateModalLabel">Fill details to Continue</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/donatorapp/savebook" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="mb-3">
+              <label class="form-label" style="margin-top: 10px; font-weight: bold; font-size: large;">Books for
+                class</label>
+              <select name="book_class">
+                <option value="10">10TH</option>
+                <option value="12">12TH</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4TH Year</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style=" font-weight: bold; font-size: large;">Subjects</label>
+              <input type="text" class="form-control" name="subjects">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style=" font-weight: bold; font-size: large;">Number of Books</label>
+              <input type="number" class="form-control" name="book_no">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style=" font-weight: bold; font-size: large;">Books Edition</label>
+              <input type="number" class="form-control" name="edition">
+            </div>
+            <div class="mb-3">
+              <label for="img" class="form-label" style=" font-weight: bold; font-size: large;">Select image of one
+                Book:</label>
+              <input type="file" id="img" name="img" accept="image/*" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
