@@ -56,16 +56,16 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background-image: linear-gradient(red, yellow);">
           <div class="modal-header">
             <h4 class="modal-title" id="staticBackdropLabel" style="font-family: Georgia, 'Times New Roman', Times, serif;">Details of book donator</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <h3 style="margin: 7%; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;color:slateblue;">NAME : {{details.fname}}</h3>
-            <h3 style="margin: 7%;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;color:slateblue;">EMAIL : {{details.emai}}</h3>
-            <h3 style="margin: 7%;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;color:slateblue;">LOCATION : {{details.city}}</h3>
-            <h3 style="margin: 7%;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;color:slateblue;">Contact Number : {{details.number}}</h3>
+          <div class="modal-body" style="background-image: linear-gradient(red, yellow);">
+            <h3 style="margin: 7%; font-family: fantasy;  ">NAME : {{details.fname}}</h3>
+            <h3 style="margin: 7%; font-family: fantasy;">EMAIL : {{details.emai}}</h3>
+            <h3 style="margin: 7%; font-family: fantasy;">LOCATION : {{details.city}}</h3>
+            <h3 style="margin: 7%; font-family: fantasy;">Contact Number : {{details.number}}</h3>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

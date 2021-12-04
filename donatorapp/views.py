@@ -66,8 +66,13 @@ def dlogin(request):
     if request.method == "POST":
         email = request.POST['email']
         pword = request.POST['password']
-        dno=donator.objects.get(emai=email)
-        valid=check_password(pword,dno.passw)
+        if donator.objects.filter(emai=email).exists():
+            dno=donator.objects.get(emai=email)
+            valid=check_password(pword,dno.passw)
+        else:
+            data = {}
+            data['message'] = "Signup to continue"
+            return render(request, 'booksapp/index.html', data)
         if valid is not True:
             data = {}
             data['message'] = "Email or Password is incorrect"
