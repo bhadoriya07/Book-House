@@ -32,26 +32,27 @@
           </li>
       </div>
       <div class="mx-3">
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#signupModal">SignUp</button>
       </div>
     </div>
   </nav>
 
   <!-- Login Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="loginModalLabel">Login to Continue</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="form1" action="/accountapp/login" method="POST">
             {% csrf_token %}
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="md-3">
@@ -59,12 +60,13 @@
               <input type="password" class="form-control" id="validationDefault01" required name="password">
             </div>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit</button>
+              <button class="btn btn-primary" type="submit"
+                style="margin-left: 150px; margin-top: 20px;">Submit</button>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -76,10 +78,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="signupModalLabel">Signup to Continue</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form  method="post" action="/accountapp/signup">
+          <form method="post" action="/accountapp/signup">
             {% csrf_token %}
             <div class="form-group">
               <label for="exampleInputEmail1">First name</label>
@@ -91,7 +93,8 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="md-3">
@@ -99,7 +102,8 @@
               <input type="password" class="form-control" id="validationDefault01" required name="password">
             </div>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit form</button>
+              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit
+                form</button>
             </div>
           </form>
         </div>
@@ -120,9 +124,9 @@
       <p
         style="color:lime; font-size: 40px; line-height: normal;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
         Donate a Book, SHARE THE JOY OF READING </p>
-      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dsignupModal"> Signup to
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#dsignupModal"> Signup to
         Donate</button>
-      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dloginModal"> Login to
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#dloginModal"> Login to
         Donate</button>
       <p style="color: darkgrey;">Use these buttons if you are donator</p>
       <p style="color: red;font-size: 30px;">{{message}}</p>
@@ -134,14 +138,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="dloginModalLabel">Login to Continue</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="/donatorapp/login" method="POST">
             {% csrf_token %}
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="md-3">
@@ -149,12 +154,13 @@
               <input type="password" class="form-control" id="validationDefault01" required name="password">
             </div>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit</button>
+              <button class="btn btn-primary" type="submit"
+                style="margin-left: 150px; margin-top: 20px;">Submit</button>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -165,7 +171,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="dsignupModalLabel">Signup to Continue</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form action="/donatorapp/signup" method="POST">
@@ -184,11 +190,13 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="email">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Contact Number</label>
-              <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="number">
+              <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                name="number">
               <small id="emailHelp" class="form-text text-muted">People will contact using this number</small>
             </div>
             <div class="md-3">
@@ -196,7 +204,8 @@
               <input type="password" class="form-control" id="validationDefault01" required name="password">
             </div>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit form</button>
+              <button class="btn btn-primary" type="submit" style="margin-left: 150px; margin-top: 20px;">Submit
+                form</button>
             </div>
           </form>
         </div>
@@ -204,7 +213,7 @@
     </div>
   </div>
   <!-- Option 1: Bootstrap Bundle with Popper -->
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
